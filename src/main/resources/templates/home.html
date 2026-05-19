@@ -2,29 +2,81 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 { text-align: center; margin-bottom: 30px; color: #333; font-size: 28px; }
+        .info-group {
+            background: #f8faff;
+            border: 1px solid #e8eeff;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+        }
+        .info-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .info-value {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        .logout-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #ef4444;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 24px;
+            transition: background 0.2s;
+        }
+        .logout-btn:hover { background: #dc2626; }
+    </style>
 </head>
 <body>
-<h1>Home</h1>
-
-<p>
-    Username:
-    <span th:text="${user.username}"></span>
-</p>
-
-<p>
-    Nama:
-    <span th:text="${profile.nama}"></span>
-</p>
-
-<p>
-    Alamat:
-    <span th:text="${profile.alamat}"></span>
-</p>
-
-<a th:href="@{/logout}">
-    Logout
-</a>
-
+<div class="card">
+    <h1>Selamat Datang 👋</h1>
+    <div class="info-group">
+        <div class="info-label">Username</div>
+        <div class="info-value" th:text="${user.username}">-</div>
+    </div>
+    <div class="info-group">
+        <div class="info-label">Nama</div>
+        <div class="info-value" th:text="${profile.nama}">-</div>
+    </div>
+    <div class="info-group">
+        <div class="info-label">Alamat</div>
+        <div class="info-value" th:text="${profile.alamat}">-</div>
+    </div>
+    <a th:href="@{/logout}" class="logout-btn">Logout</a>
+</div>
 </body>
 </html>
